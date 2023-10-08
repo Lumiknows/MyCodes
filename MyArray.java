@@ -185,10 +185,17 @@ public class MyArray {
             System.out.println("Unable to Resize to a Smaller Size than the Current Number of Elements!");
         } else {
             int [] newArray = new int[newSize];
+            int newCtr = 0;
 
-            System.arraycopy(arr, 0, newArray, 0, ctr); 
+            for (int i = 0; i < ctr; i++) {
+                if(arr[i] != 0) {
+                    newArray[newCtr] = arr [i];
+                    newCtr++;
+                }
+            } 
             arr = newArray;
             size = newSize;
+            newCtr++;
         }
     }
 
