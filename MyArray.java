@@ -81,7 +81,6 @@ public class MyArray {
                 System.out.println("Invalid Index Number!");
             } else {
                 arr[remIdx] = 0;
-                idx--;
                 System.out.println("Index: " + remIdx + " was removed!");
             }
         }
@@ -180,22 +179,18 @@ public class MyArray {
 
         System.out.println("Enter New Array Size: ");
         int newSize = sc.nextInt();
-
-        if (newSize < ctr) {
-            System.out.println("Unable to Resize to a Smaller Size than the Current Number of Elements!");
+      
+        if (newSize <= ctr) {
+          System.out.println("Unable to Resize to a Smaller/Simalar Size than the Current Number of Elements!");
+          return;
         } else {
-            int [] newArray = new int[newSize];
-            int newCtr = 0;
-
-            for (int i = 0; i < ctr; i++) {
-                if(arr[i] != 0) {
-                    newArray[newCtr] = arr [i];
-                    newCtr++;
-                }
-            } 
-            arr = newArray;
-            size = newSize;
-            newCtr++;
+          int [] newArray = new int[newSize];
+      
+          for (int i = 0; i < ctr; i++) {
+              newArray[i] = arr [i];
+          }
+          arr = newArray;
+          size = newSize;
         }
     }
 
