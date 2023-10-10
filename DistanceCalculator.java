@@ -12,15 +12,13 @@ public class DistanceCalculator {
 
 class Menu {
     Scanner sc = new Scanner(System.in);
-    double speed, distance, est;
+    double speed, distance, eta;
 
     public void input() {
         System.out.println("Enter Speed(km/hr): ");
         speed = sc.nextInt();
     }
     public void displayMenu() {
-        
-        System.out.println("Enter your Destination: ");
         
         System.out.println("Route 1 - Mingla");
         System.out.println("Route 2 - San Fernando");
@@ -61,8 +59,10 @@ class Menu {
     }
     
     public void result() {
-        est = distance / speed;
-        System.out.printf("\nEST. Time of Arrival: \t%.2f HR/S" , est);
+        eta = distance / speed * 60;
+        int hour = (int)eta / 60;
+        int min = (int)eta % 60;
+        System.out.print("\nEST. Time of Arrival: \t" + hour +  " Hr " + min + " min");
         System.out.println("\nTotal Distance: \t" + distance + " KM");
     }
 }
