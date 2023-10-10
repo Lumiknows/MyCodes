@@ -12,7 +12,7 @@ public class DistanceCalculator {
 
 class Menu {
     Scanner sc = new Scanner(System.in);
-    double speed, distance, est, totaDis;
+    double speed, distance, est;
 
     public void input() {
         System.out.println("Enter Speed(km/hr): ");
@@ -38,32 +38,31 @@ class Menu {
             int route4 = sc.nextInt();
             if (route4 == 1 ) {
                 distance = 95.4;
-                totalDis = 95.4;
                 
-                System.out.println("Route 5 Argao");
-                System.out.println("Route 5.1 Ronda");
-                System.out.println("Route 5.2 Alcantara");
+                System.out.println("Route 5   - Argao");
+                System.out.println("Route 5.1 - Ronda");
+                System.out.println("Route 5.2 - Alcantara");
                 System.out.println("Moalboal (End)");
                 
             } else if (route4 == 2) {
                 distance = 95.1;
-                System.out.println("Route 4.2 - Sibonga");
+                System.out.println("Route 4.2   - Sibonga");
                 System.out.println("Route 4.2.1 - Dumanjug");
                 System.out.println("Route 4.1.2 - Alcantara");
                 System.out.println("Moalboal (End)");
             }    
         } else if (option == 2) {
             distance = 86.1;
-            System.out.println("Route 4.1 Barili");
-            System.out.println("Route 4.1.1 Dumanjug");
-            System.out.println("Route 4.1.2 Alcantara");
+            System.out.println("Route 4.1   - Barili");
+            System.out.println("Route 4.1.1 - Dumanjug");
+            System.out.println("Route 4.1.2 - Alcantara");
             System.out.println("Moalboal (End)");
         }
     }
     
     public void result() {
         est = distance / speed;
-        System.out.printf("\nEST. Time of Arrival: %.2f" ,est);
-        System.out.println("Total Distance: " + totalDis);
+        System.out.printf("\nEST. Time of Arrival: \t%.2f HR/S" , est);
+        System.out.println("\nTotal Distance: \t" + distance + " KM");
     }
 }
