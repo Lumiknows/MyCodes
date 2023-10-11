@@ -35,7 +35,7 @@ class Menu {
             System.out.println("[1] - Yes [2] - No");
             int route4 = sc.nextInt();
             if (route4 == 1 ) {
-                distance = 95.4;
+                distance = 103.2;
                 
                 System.out.println("Route 5   - Argao");
                 System.out.println("Route 5.1 - Ronda");
@@ -43,7 +43,7 @@ class Menu {
                 System.out.println("Moalboal (End)");
                 
             } else if (route4 == 2) {
-                distance = 95.1;
+                distance = 94.6;
                 System.out.println("Route 4.2   - Sibonga");
                 System.out.println("Route 4.2.1 - Dumanjug");
                 System.out.println("Route 4.1.2 - Alcantara");
