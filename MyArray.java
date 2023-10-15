@@ -44,15 +44,19 @@ public class MyArray {
                 ctr++;
             }
 
+            while (true) {
                 System.out.println("Do you want to add another Value?");
                 System.out.println("1 - Yes     2 - No");
                 int opt = sc.nextInt();
 
-                if (opt != 1) {
-                    return;
-                } else if (opt == 2) {
+                if (opt == 1) {
                     break;
-                } 
+                } else if (opt == 2) {
+                    return;
+                } else {
+                    System.out.println("Invalid Input!");
+                }
+            }
         }
     }
 
