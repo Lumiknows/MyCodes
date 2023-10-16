@@ -21,72 +21,78 @@ public class MyArray {
             return ctr == 0;
     }
 
-    public void add() {
-        while (true) {
-            try {
-                if (isFull()) {
-                    System.out.println("Array is Full!");
-                    System.out.println("Do you Want to Resize your Array?");
-                    System.out.println("1 - Yes     2 - No");
-                    int option = Integer.parseInt(sc.nextLine());
-    
-                    if (option == 1) {
-                        arraySize();
-                    } else if (option == 2) {
-                        return;
-                    } else {
-                        System.out.println("Invalid Input!");
-                    }
-                } else {
-                    while (true) {
-                        System.out.println("Enter Value to Add: ");
-                        String input = sc.nextLine();
-    
-                        try {
-                            int val = Integer.parseInt(input);
-                            arr[++idx] = val;
-                            ctr++;
-                            break;
-                        } catch (NumberFormatException e) {
-                            System.out.println("Invalid Input! Please Enter an Integer Value");
-                        }
-                    }
-                }
-    
-                while (true) {
-                    System.out.println("Do you want to add another Value?");
-                    System.out.println("1 - Yes     2 - No");
-                    String input = sc.nextLine();
-    
-                    try {
-                        int opt = Integer.parseInt(input);
-    
-                        if (opt == 1 || opt == 2) {
-                            if (opt == 2) {
-                                return;
-                            }
-                            break;
-                        } else {
-                            System.out.println("Invalid Input!");
-                        }
-                    } catch (NumberFormatException e) {
-                        System.out.println("Invalid Input! Please Enter an Integer Value");
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("Invalid Input! Please Enter an Integer Value");
-            }
-        }
-    }
-    
+   public void add() {
+       while (true) {
+           try {
+               if (isFull()) {
+                   System.out.println("Array is Full!");
+                   System.out.println("Do you Want to Resize your Array?");
+                   System.out.println("1 - Yes   2 - No");
+                   int option = Integer.parseInt(sc.nextLine());
+   
+                   if (option == 1) {
+                       arraySize();
+                   } else if (option == 2) {
+                       return;
+                   } else {
+                       System.out.println("Invalid Input!");
+                   }
+               } else {
+                   while (true) {
+                       System.out.println("Enter Value to Add: ");
+                       String input = sc.nextLine();
+   
+                       try {
+                           int val = Integer.parseInt(input);
+                           if (idx < size - 1) {
+                               arr[++idx] = val;
+                               ctr++;
+                               break;
+                           } else {
+                               System.out.println("Array is Full!");
+                               return;
+                           }
+                       } catch (NumberFormatException e) {
+                           System.out.println("Invalid Input! Please Enter an Integer Value");
+                       }
+                   }
+               }
+   
+               while (true) {
+                   System.out.println("Do you want to add another Value?");
+                   System.out.println("1 - Yes   2 - No");
+                   String input = sc.nextLine();
+   
+                   try {
+                       int opt = Integer.parseInt(input);
+   
+                       if (opt == 1 || opt == 2) {
+                           if (opt == 2) {
+                               return;
+                           }
+                           break;
+                       } else {
+                           System.out.println("Invalid Input!");
+                       }
+                   } catch (NumberFormatException e) {
+                       System.out.println("Invalid Input! Please Enter an Integer Value");
+                   }
+               }
+           } catch (Exception e) {
+               System.out.println("Invalid Input! Please Enter an Integer Value");
+               sc.next();
+           }
+       }
+   }
     
 
     public void view () {
 
         if (isEmpty()) {
             System.out.println("Array is Empty!");
+            return;
         }      
-        for(int i = 0; i < ctr; i++) {
+        for(int i = 0; i < size; i++) {
 
             System.out.print("[" + arr[i] + "] ");
         }
@@ -284,6 +290,7 @@ public class MyArray {
 
         System.out.println("Enter New Array Size: ");
         int newSize = sc.nextInt();
+        sc.nextLine();
       
         if (newSize <= ctr) {
           System.out.println("Unable to Resize to a Smaller/Simalar Size than the Current Number of Elements!");
